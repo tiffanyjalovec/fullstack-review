@@ -16,16 +16,31 @@ class App extends React.Component {
 
   search (term) {
     console.log(`${term} was searched`);
-
     $.ajax({
       type: "POST",
       url: "/repos",//the url to which the request is sent,
-      data: {username: term},//plainobject or string that is sent to the server with the request,
+      data: JSON.stringify({username: term}),//plainobject or string that is sent to the server with the request,
+      contentType: 'application/json',
       success: (data) => {
        console.log('POST success!!')
        //after success, then do a GET request to the server for the data
-      }//callback function executed if the request is successful
+      },
+      error: (err) => {
+        console.log('Error in POST', err);
+      }
     })
+    // $.ajax({
+    //   type: "GET",
+    //   url: "/repos",
+    //   data: {username: term},
+    //   success: (data) => {
+    //     this.setState({repos: data})
+    //     //callback function executed if the request is successful
+    //   },
+    //   error: (err) => {
+    //     console.log("Error in GET", err);
+    //   }
+    // });
   }
 
   render () {

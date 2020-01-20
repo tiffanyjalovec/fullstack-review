@@ -13,10 +13,11 @@ let repoSchema = mongoose.Schema({
 
 let Repo = mongoose.model('Repo', repoSchema);
 
-let save = (data) {
+let save = (data) => {
   // TODO: Your code here
   // This function should save a repo or repos to
   // the MongoDB
+  console.log(data);
   var row = new Repo({
     id: data.id,
     name: data.name,
