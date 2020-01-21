@@ -29,10 +29,12 @@ class App extends React.Component {
         console.log('Error in POST', err);
       }
     })
+  }
     // $.ajax({
     //   type: "GET",
     //   url: "/repos",
-    //   data: {username: term},
+    //   data: JSON.stringify({username: term}),
+    //   contentType: 'application/json',
     //   success: (data) => {
     //     this.setState({repos: data})
     //     //callback function executed if the request is successful
@@ -41,7 +43,6 @@ class App extends React.Component {
     //     console.log("Error in GET", err);
     //   }
     // });
-  }
 
   render () {
     return (<div>

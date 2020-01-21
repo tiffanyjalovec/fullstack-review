@@ -17,12 +17,12 @@ let save = (data) => {
   // TODO: Your code here
   // This function should save a repo or repos to
   // the MongoDB
-  console.log(data);
+
   var row = new Repo({
-    id: data.id,
-    name: data.name,
-    owner_id: data.owner_id,
-    stargazers_count: data.stargazers_count
+    id: data[0].id,
+    name: data[0].name,
+    owner_id: data[0].owner.id,
+    stargazers_count: data[0].stargazers_count
   });
 
   row.save(function(err, data) {
